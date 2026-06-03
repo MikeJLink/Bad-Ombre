@@ -105,6 +105,25 @@
       align-items: center;
     }
 
+    .icon-link {
+      display: inline-block;
+      width: 112px;
+      height: 112px;
+      border-radius: 29px;
+      text-decoration: none;
+      transform: rotate(-3deg);
+    }
+    
+    .privacy-icon {
+      width: 112px;
+      height: 112px;
+      display: block;
+      border: 2px solid var(--ink);
+      border-radius: 29px;
+      background: white;
+      box-shadow: 6px 6px 0 rgba(9,35,19,.9);
+    }
+
     .mini-icon {
       width: 112px;
       height: 112px;
@@ -329,6 +348,14 @@
       .summary-body { padding: 16px; }
       section.policy-section { padding: 18px; }
       footer { padding: 24px 16px 30px; }
+
+      .icon-link { width: 78px; height: 78px; border-radius: 20px; }
+
+.privacy-icon {
+  width: 78px;
+  height: 78px;
+  border-radius: 20px;
+}      
     }
   </style>
 </head>
@@ -336,12 +363,18 @@
   <div class="wrap">
     <div class="shell">
       <header>
-          <h1>Privacy Policy</h1>
+        <div class="hero">
+          <a class="icon-link" href="index.html" aria-label="Go to Missing Link home">
+            <img class="privacy-icon" src="image.png" alt="Missing Link app icon" />
+          </a>
+      
           <div>
+            <h1>Privacy Policy</h1>
             <p><strong>Last updated:</strong> June 3, 2026</p>
             <p><strong>Missing Link is a native Mac app for finding links that were sent or received in Messages. This Privacy Policy explains how Missing Link handles information on your Mac and when information may leave your device.</strong></p>
             <p><strong>For purposes of this policy, “Missing Link,” “we,” “us,” and “our” mean Bad Ombré, the developer of Missing Link.</strong></p>
           </div>
+        </div>
       </header>
 
       <main>
