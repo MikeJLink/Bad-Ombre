@@ -4,6 +4,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Missing Link Privacy Policy</title>
+
+  <link rel="icon" type="image/png" href="../image.png" />
+  <link rel="apple-touch-icon" href="../image.png" />
+
   <style>
     :root {
       --green: #34d85a;
@@ -60,134 +64,52 @@
       border-bottom: 2px solid var(--ink);
     }
 
-    .topline {
-      display: flex;
-      justify-content: space-between;
-      gap: 18px;
-      align-items: center;
-      margin-bottom: 26px;
-    }
-
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 12px;
-      border: 2px solid var(--ink);
-      border-radius: 999px;
-      background: var(--green-3);
-      font-size: 13px;
-      font-weight: 900;
-      letter-spacing: .04em;
-      text-transform: uppercase;
-      transform: rotate(-1deg);
-      box-shadow: 4px 4px 0 rgba(9,35,19,.12);
-    }
-
-    .back-link {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 9px 12px;
-      border: 2px solid var(--ink);
-      border-radius: 999px;
-      background: rgba(255,255,255,.76);
-      font-size: 14px;
-      font-weight: 900;
-      text-decoration: none;
-      box-shadow: 4px 4px 0 rgba(9,35,19,.12);
-    }
-
     .hero {
-      display: grid;
-      grid-template-columns: 112px 1fr;
-      gap: 28px;
+      max-width: 820px;
+    }
+
+    .title-row {
+      display: flex;
       align-items: center;
+      gap: 24px;
+      margin-bottom: 18px;
     }
 
     .icon-link {
       display: inline-block;
-      width: 112px;
-      height: 112px;
-      border-radius: 29px;
+      width: 96px;
+      height: 96px;
+      border-radius: 25px;
       text-decoration: none;
       transform: rotate(-3deg);
+      flex: 0 0 auto;
     }
-    
+
     .privacy-icon {
-      width: 112px;
-      height: 112px;
+      width: 96px;
+      height: 96px;
       display: block;
       border: 2px solid var(--ink);
-      border-radius: 29px;
+      border-radius: 25px;
       background: white;
       box-shadow: 6px 6px 0 rgba(9,35,19,.9);
     }
 
-    .mini-icon {
-      width: 112px;
-      height: 112px;
-      position: relative;
-      border: 2px solid var(--ink);
-      border-radius: 29px;
-      background:
-        linear-gradient(100deg, var(--green) 0 48%, rgba(255,255,255,.82) 48% 100%);
-      box-shadow: 6px 6px 0 rgba(9,35,19,.9);
-      transform: rotate(-3deg);
-      overflow: hidden;
-    }
-
-    .mini-icon::before,
-    .mini-icon::after {
-      content: "";
-      position: absolute;
-      top: 29px;
-      width: 13px;
-      height: 33px;
-      border: 2px solid var(--ink);
-      border-radius: 999px;
-      background: #07140c;
-    }
-
-    .mini-icon::before { left: 29px; }
-    .mini-icon::after { right: 29px; }
-
-    .mouth {
-      position: absolute;
-      left: 22px;
-      right: 22px;
-      bottom: 30px;
-      height: 8px;
-      border: 2px solid var(--ink);
-      border-radius: 999px;
-      background: #07140c;
-    }
-
     h1 {
-      margin: 0 0 .3em 0;
+      margin: 0;
       font-size: clamp(48px, 9vw, 104px);
       line-height: .83;
       letter-spacing: -.075em;
       text-shadow: 4px 4px 0 rgba(255,255,255,.65);
     }
 
-    .tagline {
-      max-width: 720px;
-      margin: 20px 0 0;
-      font-size: clamp(21px, 3vw, 32px);
-      line-height: 1.08;
-      font-weight: 900;
-      letter-spacing: -.035em;
-    }
-
-    .intro {
+    .hero p {
       max-width: 790px;
-      margin-top: 24px;
       font-size: 18px;
       font-weight: 600;
     }
 
-    .intro strong {
+    .hero p strong {
       background: var(--green-3);
       padding: 0 .2em;
       border-radius: 6px;
@@ -195,69 +117,6 @@
 
     main {
       padding: clamp(30px, 5vw, 58px);
-    }
-
-    .summary-card {
-      margin-bottom: 38px;
-      border: 2px solid var(--ink);
-      border-radius: 30px 12px 30px 12px;
-      background: linear-gradient(160deg, #ffffff, var(--green-3));
-      box-shadow: 6px 6px 0 rgba(9,35,19,.9);
-      overflow: hidden;
-    }
-
-    .card-bar {
-      min-height: 42px;
-      border-bottom: 2px solid var(--ink);
-      background: var(--green);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 16px;
-      font-size: 13px;
-      font-weight: 950;
-      letter-spacing: .04em;
-      text-transform: uppercase;
-    }
-
-    .dot {
-      width: 12px;
-      height: 12px;
-      border: 2px solid var(--ink);
-      border-radius: 50%;
-      background: var(--green-3);
-      flex: 0 0 auto;
-    }
-
-    .summary-body {
-      padding: 22px;
-      display: grid;
-      gap: 12px;
-    }
-
-    .summary-line {
-      display: grid;
-      grid-template-columns: 34px 1fr;
-      gap: 12px;
-      align-items: start;
-      padding: 14px;
-      border: 2px solid var(--ink);
-      border-radius: 18px;
-      background: rgba(255,255,255,.76);
-      font-weight: 760;
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 34px;
-      height: 34px;
-      border: 2px solid var(--ink);
-      border-radius: 999px;
-      background: var(--green-2);
-      font-weight: 950;
-      line-height: 1;
     }
 
     article {
@@ -308,6 +167,11 @@
       font-size: .92em;
     }
 
+    pre {
+      margin: 8px 0 14px;
+      white-space: pre-wrap;
+    }
+
     .callout {
       margin-top: 14px;
       padding: 14px;
@@ -334,46 +198,65 @@
 
     @media (max-width: 720px) {
       body { background-size: auto, auto, 28px 28px, 28px 28px, auto; }
-      .wrap { width: min(100% - 18px, 980px); }
-      .shell { border-radius: 28px 12px 28px 12px; box-shadow: 5px 5px 0 #092313; }
-      .topline { align-items: flex-start; flex-direction: column; }
-      .hero { grid-template-columns: 78px 1fr; gap: 16px; }
-      .mini-icon { width: 78px; height: 78px; border-radius: 20px; }
-      .mini-icon::before,
-      .mini-icon::after { top: 19px; width: 10px; height: 24px; }
-      .mini-icon::before { left: 20px; }
-      .mini-icon::after { right: 20px; }
-      .mouth { left: 16px; right: 16px; bottom: 20px; height: 7px; }
-      main { padding: 24px 16px; }
-      .summary-body { padding: 16px; }
-      section.policy-section { padding: 18px; }
-      footer { padding: 24px 16px 30px; }
 
-      .icon-link { width: 78px; height: 78px; border-radius: 20px; }
+      .wrap {
+        width: min(100% - 18px, 980px);
+      }
 
-.privacy-icon {
-  width: 78px;
-  height: 78px;
-  border-radius: 20px;
-}      
+      .shell {
+        border-radius: 28px 12px 28px 12px;
+        box-shadow: 5px 5px 0 #092313;
+      }
+
+      .title-row {
+        gap: 14px;
+        align-items: center;
+      }
+
+      .icon-link {
+        width: 68px;
+        height: 68px;
+        border-radius: 18px;
+      }
+
+      .privacy-icon {
+        width: 68px;
+        height: 68px;
+        border-radius: 18px;
+        box-shadow: 4px 4px 0 rgba(9,35,19,.9);
+      }
+
+      main {
+        padding: 24px 16px;
+      }
+
+      section.policy-section {
+        padding: 18px;
+      }
+
+      footer {
+        padding: 24px 16px 30px;
+      }
     }
   </style>
 </head>
+
 <body id="top">
   <div class="wrap">
     <div class="shell">
       <header>
         <div class="hero">
-          <a class="icon-link" href="../index.html" aria-label="Go to Missing Link home">
-            <img class="privacy-icon" src="../image.png" />
-          </a>
-      
-          <div>
+          <div class="title-row">
+            <a class="icon-link" href="../index.html" aria-label="Go to Missing Link home">
+              <img class="privacy-icon" src="../image.png" alt="Missing Link app icon" />
+            </a>
+
             <h1>Privacy Policy</h1>
-            <p><strong>Last updated:</strong> June 3, 2026</p>
-            <p><strong>Missing Link is a native Mac app for finding links that were sent or received in Messages. This Privacy Policy explains how Missing Link handles information on your Mac and when information may leave your device.</strong></p>
-            <p><strong>For purposes of this policy, “Missing Link,” “we,” “us,” and “our” mean Bad Ombré, the developer of Missing Link.</strong></p>
           </div>
+
+          <p><strong>Last updated:</strong> June 3, 2026</p>
+          <p><strong>Missing Link is a native Mac app for finding links that were sent or received in Messages. This Privacy Policy explains how Missing Link handles information on your Mac and when information may leave your device.</strong></p>
+          <p><strong>For purposes of this policy, “Missing Link,” “we,” “us,” and “our” mean Bad Ombré, the developer of Missing Link.</strong></p>
         </div>
       </header>
 
@@ -517,45 +400,28 @@
 
           <section class="policy-section">
             <h2>14. Your Choices</h2>
-            <p>You can control Missing Link’s privacy-related behavior through app settings and macOS permissions, including:</p>
+            <p>You can control Missing Link’s access and data handling by using macOS permissions and Missing Link settings. Your choices include:</p>
             <ul>
-              <li>Granting or revoking Messages folder access</li>
-              <li>Enabling or disabling Contacts access</li>
-              <li>Choosing metadata-fetching behavior</li>
+              <li>Granting or removing Messages folder access</li>
+              <li>Allowing or denying Contacts access</li>
+              <li>Changing metadata fetching settings</li>
+              <li>Choosing Safari or your default browser for opening links</li>
               <li>Choosing how long to keep links deleted from Messages</li>
               <li>Showing or hiding hidden links</li>
               <li>Exporting current results</li>
-              <li>Deleting all Missing Link app data</li>
-            </ul>
-          </section>
-
-          <section class="policy-section">
-            <h2>15. Your Choices</h2>
-            <p>You can control Missing Link’s access and data handling by using macOS permissions and Missing Link settings. Your choices include:</p>
-            <ul>
-              <li>Granting or removing Messages folder access;</li>
-              <li>Allowing or denying Contacts access;</li>
-              <li>Changing metadata fetching settings;</li>
-              <li>Choosing Safari or your default browser for opening links;</li>
-              <li>Choosing how long to keep links deleted from Messages;</li>
-              <li>Deleting all local app data from Settings;</li>
-              <li>Deleting the app from your Mac.</li>
+              <li>Deleting all local app data from Settings</li>
+              <li>Deleting the app from your Mac</li>
             </ul>
             <p>You can also manage app permissions through macOS System Settings.</p>
           </section>
 
           <section class="policy-section">
-            <h2>16. Changes to This Policy</h2>
-            <p>We may update this Privacy Policy from time to time. If we make material changes, we will update the “Last updated” date and, where appropriate, provide additional notice.</p>
-          </section>
-
-          <section class="policy-section">
-            <h2>18. Changes to this policy</h2>
+            <h2>15. Changes to This Policy</h2>
             <p>We may update this Privacy Policy from time to time. If we make material changes, we will update the “Last updated” date and, where appropriate, provide additional notice in the app or on our website.</p>
           </section>
 
           <section class="policy-section">
-            <h2>19. Contact</h2>
+            <h2>16. Contact</h2>
             <p>For privacy questions, contact: MikeJamesLink at gmail.com</p>
           </section>
         </article>
