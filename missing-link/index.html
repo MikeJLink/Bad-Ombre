@@ -76,10 +76,13 @@
     }
 
     .hero {
-      display: grid;
-      grid-template-columns: 120px 1fr;
-      gap: 28px;
+      display: block;
+    }
+    
+    .title-row {
+      display: flex;
       align-items: center;
+      gap: 28px;
     }
 
     .icon {
@@ -334,7 +337,7 @@
       body { background-size: auto, auto, 28px 28px, 28px 28px, auto; }
       .wrap { width: min(100% - 18px, 980px); }
       .shell { border-radius: 28px 12px 28px 12px; box-shadow: 5px 5px 0 #092313; }
-      .hero { grid-template-columns: 78px 1fr; gap: 16px; }
+      .title-row { gap: 16px; }
       .icon { width: 78px; height: 78px; border-radius: 20px; }
       .sticker { position: static; margin-top: 22px; width: auto; height: auto; border-radius: 999px; padding: 10px 14px; transform: rotate(-1deg); }
       main { padding: 24px 16px; }
@@ -351,11 +354,12 @@
     <div class="shell">
       <header>
         <div class="hero">
-          <img class="icon" src="image.png" alt="Missing Link app icon" />
-          <div>
+          <div class="title-row">
+            <img class="icon" src="image.png" alt="Missing Link app icon" />
             <h1>Missing Link</h1>
-            <p class="tagline">Find that Messages link, even when you don’t remember what it was, who sent it, when, or even why.</p>
           </div>
+        
+          <p class="tagline">Find that Messages link, even when you don’t remember what it was, who sent it, when, or even why.</p>
         </div>
 
         <div class="intro">
