@@ -439,19 +439,13 @@
         <details>
           <summary>Is metadata fetched automatically?</summary>
           <div class="answer">
-            <p>By default, Missing Link uses a privacy-conscious setting: metadata is automatically added for starred links and links from contacts.</p><p>You can change this in Settings:</p><ul><li>Starred and Contacts Only</li><li>All Links</li><li>Off</li></ul>
+            <p>By default, Missing Link uses a privacy-conscious setting: metadata is automatically added for starred links and links from contacts.</p><p>You can change this in Settings:</p><ul><li>Starred and Contacts Only</li><li>All Links</li><li>Off</li></ul><p>Additionally, metadata fetching is limited to public HTTPS links and avoids private/local/internal network addresses. HTTP links can still appear in Missing Link and can still be opened manually, but they are not used for metadata fetching.</p>
           </div>
         </details>
         <details>
           <summary>Why not fetch metadata for every link by default?</summary>
           <div class="answer">
             <p>Fetching metadata contacts websites. For links from unknown senders, that can be a privacy tradeoff.</p><p>The default is meant to be useful without being too eager: links you star and links from people in your contacts are treated as more likely to be worth previewing.</p>
-          </div>
-        </details>
-        <details>
-          <summary>What kinds of links can get metadata?</summary>
-          <div class="answer">
-            <p>Missing Link is intentionally cautious. Metadata fetching is limited to public HTTPS links and avoids private/local/internal network addresses.</p><p>HTTP links can still appear in Missing Link and can still be opened manually, but they are not used for metadata fetching.</p>
           </div>
         </details>
         <details>
@@ -503,18 +497,6 @@
           </div>
         </details>
         <details>
-          <summary>Does Missing Link replace bookmarks?</summary>
-          <div class="answer">
-            <p>Not exactly.</p><p>Bookmarks are links you intentionally saved. Missing Link is for links that appeared in Messages, including links you may not have remembered to bookmark. It is closer to a searchable shelf for messaged links.</p>
-          </div>
-        </details>
-        <details>
-          <summary>Does Missing Link replace Messages search?</summary>
-          <div class="answer">
-            <p>No. Missing Link is focused specifically on links.</p><p>Messages search is for conversations. Missing Link is for quickly finding URLs, previewing them, organizing them, and opening or copying them.</p>
-          </div>
-        </details>
-        <details>
           <summary>Does Missing Link back up my Messages?</summary>
           <div class="answer">
             <p>No. Missing Link is not a Messages backup tool.</p><p>It creates a local app-owned index of links for search and browsing, but it does not preserve full conversations and should not be treated as a backup of Messages.</p>
@@ -524,18 +506,6 @@
           <summary>Why might a link be missing?</summary>
           <div class="answer">
             <p>A link may be missing if Messages did not store it in a readable form, if the message was deleted, if it was marked as spam/junk, or if the link was filtered out as part of duplicate or preview-cleanup logic.</p><p>Missing Link tries to capture normal links from Messages, including links in group threads, but Messages stores different message types in different ways.</p>
-          </div>
-        </details>
-        <details>
-          <summary>Why might metadata be missing?</summary>
-          <div class="answer">
-            <p>Metadata depends on the linked website, the network, redirects, HTTPS support, content type, size limits, and privacy safety checks.</p><p>Some sites block preview requests, return incomplete metadata, or require browser features that Missing Link intentionally does not use.</p>
-          </div>
-        </details>
-        <details>
-          <summary>What settings does Missing Link support?</summary>
-          <div class="answer">
-            <p>Settings include:</p><ul><li>Messages folder access</li><li>Show contact names instead of phone numbers</li><li>Keep links deleted from Messages for</li><li>Open links with Safari or the default browser</li><li>Automatically add metadata for</li><li>Automatically refresh Messages links</li><li>Export current results as JSON or Markdown</li><li>Show Hidden Links</li><li>Delete All App Data</li></ul>
           </div>
         </details>
         <details>
