@@ -275,62 +275,83 @@
       letter-spacing: -.055em;
     }
 
-    .faq-tools { display: flex; gap: 8px; flex-wrap: wrap; }
+    .faq-thread {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      margin-top: 26px;
+      font-family: ui-rounded, "SF Pro Rounded", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 17px;
+      line-height: 1.38;
+    }
 
-    .tiny {
+    .message-pair {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .bubble {
+      width: fit-content;
+      max-width: min(82%, 710px);
+      padding: 12px 16px 13px;
       border: 2px solid var(--ink);
-      border-radius: 999px;
-      background: var(--green-3);
-      padding: 8px 10px;
-      font-weight: 850;
-      cursor: pointer;
+      overflow-wrap: anywhere;
+      box-shadow: 4px 4px 0 rgba(9,35,19,.9);
     }
 
-    details {
-      border: 2px solid var(--ink);
-      border-radius: 18px;
-      background: #fff;
-      margin: 12px 0;
-      overflow: hidden;
+.bubble.question {
+  align-self: flex-start;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.96), rgba(223,255,240,.92));
+  color: var(--ink);
+  border-radius: 22px 22px 22px 7px;
+  font-weight: 650;
+  transform: rotate(-.35deg);
+}
+
+.bubble.answer {
+  align-self: flex-end;
+  background:
+    linear-gradient(135deg, var(--green-2), #61e978 72%);
+  color: var(--ink);
+  border-radius: 22px 22px 7px 22px;
+  font-weight: 520;
+  transform: rotate(.25deg);
+}
+
+    .message-pair:nth-child(even) .bubble.question {
+      transform: rotate(.25deg);
     }
 
-    details:nth-of-type(3n+1) { background: #f3ffe9; }
-    details:nth-of-type(3n+2) { background: #e1ffd7; }
-
-    summary {
-      list-style: none;
-      cursor: pointer;
-      padding: 16px 18px;
-      font-size: 18px;
-      font-weight: 900;
+    .message-pair:nth-child(even) .bubble.answer {
+      transform: rotate(-.2deg);
     }
 
-    summary::-webkit-details-marker { display: none; }
-    summary::before { content: "↬"; display: inline-block; margin-right: 10px; transform: rotate(-8deg); }
-    details[open] summary { border-bottom: 2px solid var(--ink); background: rgba(52,216,90,.24); }
-    details[open] summary::before { content: "↓"; }
+    .bubble p { margin: 0 0 8px; }
+    .bubble p:last-child { margin-bottom: 0; }
+    .bubble ul, .bubble ol { margin: 6px 0 10px; padding-left: 22px; }
+    .bubble li { margin: 3px 0; }
 
-    .answer {
-      padding: 18px;
-      max-width: 820px;
-      color: #1e3d28;
+    .bubble a {
+      color: inherit;
+      text-decoration-color: rgba(9,35,19,.55);
+      text-decoration-thickness: 2px;
     }
 
-    .answer p { margin: 0 0 12px; }
-    .answer p:last-child { margin-bottom: 0; }
-    .answer ul, .answer ol { margin: 6px 0 14px; padding-left: 24px; }
-    .answer li { margin: 4px 0; }
-
-    pre {
+    .bubble pre {
       display: inline-block;
       max-width: 100%;
-      margin: 4px 0 14px;
-      padding: 10px 12px;
+      margin: 4px 0 10px;
+      padding: 8px 10px;
       overflow: auto;
       border: 2px solid var(--ink);
       border-radius: 12px;
-      background: var(--green-3);
+      background: rgba(255,255,255,.72);
+      color: inherit;
       font-size: 15px;
+      white-space: pre-wrap;
+      box-shadow: 2px 2px 0 rgba(9,35,19,.75);
     }
 
     footer {
@@ -354,6 +375,7 @@
       .fake-sidebar { display: flex; gap: 8px; overflow: auto; border-right: 0; border-bottom: 2px solid var(--ink); }
       .fake-sidebar div { white-space: nowrap; margin-bottom: 0; }
       .section-head { align-items: start; flex-direction: column; }
+      .bubble { max-width: 90%; }
       footer { padding: 24px 16px 30px; }
     }
   </style>
@@ -389,119 +411,135 @@
         <section aria-labelledby="faq-title">
           <div class="section-head">
             <h2 id="faq-title">Frequently Asked Questions</h2>
-            <div class="faq-tools">
-              <button class="tiny" type="button" id="openAll">Open all</button>
-              <button class="tiny" type="button" id="closeAll">Close all</button>
+          </div>
+
+          <div class="faq-thread">
+            <div class="message-pair">
+              <div class="bubble question">Why not search Messages the normal way?</div>
+              <div class="bubble answer">
+                <p>This app adds additional functionality around how links are readable, searchable, and filterable.</p><p>Additional views make it easier to scan. You may want to search for links by sender, or based on the metadata. You can also "star" a link to find more easily later.</p>
+              </div>
+            </div>
+
+            <div class="message-pair">
+              <div class="bubble question">How do I use Missing Link?</div>
+              <div class="bubble answer">
+                <p>There are three basic steps:</p><ol><li>Grant read-only access to your Messages folder.</li><li>Let Missing Link index the links it finds.</li><li>Search or browse your links using Timeline, Table, or Images view.</li></ol><p>You can search by title, domain, URL, sender, contact name, message excerpt, and available metadata. Select a link to see more details in the inspector, then open it or copy it.</p>
+              </div>
+            </div>
+
+            <div class="message-pair">
+              <div class="bubble question">What does “read-only Messages access” mean?</div>
+              <div class="bubble answer">
+                <p>Missing Link reads the Messages database file stored locally on your Mac. It uses that access to find links.</p><p>It does not write to the Messages database. It does not edit messages. It does not delete messages. It does not mark messages as read. It does not send messages.</p>
+              </div>
+            </div>
+
+            <div class="message-pair">
+              <div class="bubble question">Does Missing Link upload my messages?</div>
+              <div class="bubble answer">
+                <p>No, Missing Link does not upload your Messages database or message contents to an app server.</p><p>The main indexing work happens locally on your Mac. Missing Link stores its own local index so the app can search quickly without repeatedly parsing everything from scratch.</p><p>Some optional link preview features require network access.</p><p>When metadata fetching is enabled, Missing Link may contact linked websites, supported preview endpoints, or Apple’s metadata service to load titles, descriptions, icons, and images. That means a website may learn that a link was previewed.</p><p>Missing Link does not send your Messages database, full conversation history, or Contacts database to an app server.</p>
+              </div>
+            </div>
+
+            <div class="message-pair">
+              <div class="bubble question">Why does Missing Link need access to my Messages folder?</div>
+              <div class="bubble answer">
+                <p>macOS protects your Messages data. Missing Link needs your permission before it can read the local Messages database.</p><p>When asked, select the Messages folder itself, usually:</p><pre><code>~/Library/Messages</code></pre><p>This gives Missing Link access to read the local database file it needs to index links.</p>
+              </div>
+            </div>
+
+            <div class="message-pair">
+              <div class="bubble question">Why does Missing Link ask for Contacts access?</div>
+              <div class="bubble answer">
+                <p>Contacts access is optional and is used to make results easier to read. If enabled, Missing Link matches phone numbers and email addresses from Messages to names and thumbnail photos in your local Contacts database. For example, it can show “Alex Smith” instead of a phone number. Missing Link does not edit your contacts or upload your contacts.</p><p>If Contacts access is not enabled, it will fall back to showing available Messages handles, such as phone numbers or email addresses, instead of contact names and photos.</p>
+              </div>
+            </div>
+
+            <div class="message-pair">
+              <div class="bubble question">Is metadata fetched automatically?</div>
+              <div class="bubble answer">
+                <p>By default, Missing Link uses a privacy-conscious setting: metadata is automatically added for starred links and links from contacts.</p><p>You can change this in Settings:</p><ul><li>Starred and Contacts Only</li><li>All Links</li><li>Off</li></ul>
+              </div>
+            </div>
+
+            <div class="message-pair">
+              <div class="bubble question">Why not fetch metadata for every link by default?</div>
+              <div class="bubble answer">
+                <p>Fetching metadata contacts websites. For links from unknown senders, that can be a privacy tradeoff. The default is meant to be useful without being too eager: links you star and links from people in your contacts are treated as more likely to be worth previewing.</p><p>Additionally, metadata fetching is limited to public HTTPS links and avoids private/local/internal network addresses. HTTP links can still appear in Missing Link and can still be opened manually, but they are not used for metadata fetching.</p>
+              </div>
+            </div>
+
+            <div class="message-pair">
+              <div class="bubble question">What does starring a link do?</div>
+              <div class="bubble answer">
+                <p>Starring marks a link as important.</p><p>Starred links appear in the Starred collection and can be included in automatic metadata fetching. Stars are saved by Missing Link, separate from Messages.</p>
+              </div>
+            </div>
+
+            <div class="message-pair">
+              <div class="bubble question">What does hiding a link do?</div>
+              <div class="bubble answer">
+                <p>Hiding removes a link from normal results without deleting it from Messages.</p><p>Hidden links stay hidden unless you turn on Show Hidden Links in Settings and unhide them. This is useful for links you do not want cluttering your library.</p>
+              </div>
+            </div>
+
+            <div class="message-pair">
+              <div class="bubble question">What happens if I delete a message in Messages?</div>
+              <div class="bubble answer">
+                <p>Missing Link has a setting for links that are no longer present in Messages:</p><p>“Keep links deleted from Messages for”</p><p>Options include Don’t Keep, 30 Days, 90 Days, 1 Year, 2 Years, and Forever.</p><p>If set to Don’t Keep, links disappear from Missing Link when they are no longer found in Messages. If a retention period is selected, deleted-from-Messages links can remain in Missing Link for that amount of time based on when they were last shared.</p>
+              </div>
+            </div>
+
+            <div class="message-pair">
+              <div class="bubble question">Does Missing Link remove spam links?</div>
+              <div class="bubble answer">
+                <p>Links from Messages content marked as spam or junk are removed automatically. There is no setting to keep spam links.</p>
+              </div>
+            </div>
+
+            <div class="message-pair">
+              <div class="bubble question">What data does Missing Link store locally?</div>
+              <div class="bubble answer">
+                <p>Missing Link stores app-owned data such as:</p><ul><li>A local link index</li><li>Starred and hidden link state</li><li>Cached preview metadata</li><li>Metadata attempt history</li><li>Settings and layout preferences</li><li>The saved Messages folder permission</li></ul><p>This data belongs to Missing Link and can be deleted from Settings. It is separate from the Messages database.</p>
+              </div>
+            </div>
+
+            <div class="message-pair">
+              <div class="bubble question">What does “Delete All App Data” do?</div>
+              <div class="bubble answer">
+                <p>Delete All App Data removes Missing Link’s local data, including its saved index, cached previews, preferences, stars, hidden links, metadata attempts, and saved Messages folder permission.</p><p>It does not delete or modify Messages.</p><p>After using it, Missing Link will behave like a fresh install and may need Messages access again.</p>
+              </div>
+            </div>
+
+            <div class="message-pair">
+              <div class="bubble question">Can I export links?</div>
+              <div class="bubble answer">
+                <p>Yes. Missing Link can copy current results as JSON or Markdown.</p><p>Exports are user-initiated. They are meant for your own use. The app’s export format is sanitized and does not include raw Messages database identifiers.</p>
+              </div>
+            </div>
+
+            <div class="message-pair">
+              <div class="bubble question">Does Missing Link back up my Messages?</div>
+              <div class="bubble answer">
+                <p>No. Missing Link is not a Messages backup tool.</p><p>It creates a local app-owned index of links for search and browsing, but it does not preserve full conversations and should not be treated as a backup of Messages.</p>
+              </div>
+            </div>
+
+            <div class="message-pair">
+              <div class="bubble question">Why might a link be missing?</div>
+              <div class="bubble answer">
+                <p>A link may be missing if Messages did not store it in a readable form, if the message was deleted, if it was marked as spam/junk, or if the link was filtered out as part of duplicate or preview-cleanup logic.</p><p>Missing Link tries to capture normal links from Messages, including links in group threads, but Messages stores different message types in different ways.</p>
+              </div>
+            </div>
+
+            <div class="message-pair">
+              <div class="bubble question">Where is the privacy policy?</div>
+              <div class="bubble answer">
+                <p>The privacy policy is available at:</p><p><a href="/missing-link/privacy/">badombre.com/missing-link/privacy/</a></p>
+              </div>
             </div>
           </div>
-        <details>
-          <summary>Why not search Messages the normal way?</summary>
-          <div class="answer">
-            <p>This app adds additional functionality around how links are readable, searchable, and filterable.</p><p>Additional views make it easier to scan. You may want to search for links by sender, or based on the metadata. You can also "star" a link to find more easily later.</p>
-          </div>
-        </details>
-        <details>
-          <summary>How do I use Missing Link?</summary>
-          <div class="answer">
-            <p>There are three basic steps:</p><ol><li>Grant read-only access to your Messages folder.</li><li>Let Missing Link index the links it finds.</li><li>Search or browse your links using Timeline, Table, or Images view.</li></ol><p>You can search by title, domain, URL, sender, contact name, message excerpt, and available metadata. Select a link to see more details in the inspector, then open it or copy it.</p>
-          </div>
-        </details>
-        <details>
-          <summary>What does “read-only Messages access” mean?</summary>
-          <div class="answer">
-            <p>Missing Link reads the Messages database file stored locally on your Mac. It uses that access to find links.</p><p>It does not write to the Messages database. It does not edit messages. It does not delete messages. It does not mark messages as read. It does not send messages.</p>
-          </div>
-        </details>
-        <details>
-          <summary>Does Missing Link upload my messages?</summary>
-          <div class="answer">
-            <p>No, Missing Link does not upload your Messages database or message contents to an app server.</p><p>The main indexing work happens locally on your Mac. Missing Link stores its own local index so the app can search quickly without repeatedly parsing everything from scratch.</p><p>Some optional link preview features require network access.</p><p>When metadata fetching is enabled, Missing Link may contact linked websites, supported preview endpoints, or Apple’s metadata service to load titles, descriptions, icons, and images. That means a website may learn that a link was previewed.</p><p>Missing Link does not send your Messages database, full conversation history, or Contacts database to an app server.</p>
-          </div>
-        </details>
-        <details>
-          <summary>Why does Missing Link need access to my Messages folder?</summary>
-          <div class="answer">
-            <p>macOS protects your Messages data. Missing Link needs your permission before it can read the local Messages database.</p><p>When asked, select the Messages folder itself, usually:</p><pre><code>~/Library/Messages</code></pre><p>This gives Missing Link access to read the local database file it needs to index links.</p>
-          </div>
-        </details>
-        <details>
-          <summary>Why does Missing Link ask for Contacts access?</summary>
-          <div class="answer">
-            <p>Contacts access is optional and is used to make results easier to read. If enabled, Missing Link matches phone numbers and email addresses from Messages to names and thumbnail photos in your local Contacts database. For example, it can show “Alex Smith” instead of a phone number. Missing Link does not edit your contacts or upload your contacts.</p><p>If Contacts access is not enabled, it will fall back to showing available Messages handles, such as phone numbers or email addresses, instead of contact names and photos.</p>
-          </div>
-        </details>
-        <details>
-          <summary>Is metadata fetched automatically?</summary>
-          <div class="answer">
-            <p>By default, Missing Link uses a privacy-conscious setting: metadata is automatically added for starred links and links from contacts.</p><p>You can change this in Settings:</p><ul><li>Starred and Contacts Only</li><li>All Links</li><li>Off</li></ul>
-          </div>
-        </details>
-        <details>
-          <summary>Why not fetch metadata for every link by default?</summary>
-          <div class="answer">
-            <p>Fetching metadata contacts websites. For links from unknown senders, that can be a privacy tradeoff. The default is meant to be useful without being too eager: links you star and links from people in your contacts are treated as more likely to be worth previewing.</p><p>Additionally, metadata fetching is limited to public HTTPS links and avoids private/local/internal network addresses. HTTP links can still appear in Missing Link and can still be opened manually, but they are not used for metadata fetching.</p>
-          </div>
-        </details>
-        <details>
-          <summary>What does starring a link do?</summary>
-          <div class="answer">
-            <p>Starring marks a link as important.</p><p>Starred links appear in the Starred collection and can be included in automatic metadata fetching. Stars are saved by Missing Link, separate from Messages.</p>
-          </div>
-        </details>
-        <details>
-          <summary>What does hiding a link do?</summary>
-          <div class="answer">
-            <p>Hiding removes a link from normal results without deleting it from Messages.</p><p>Hidden links stay hidden unless you turn on Show Hidden Links in Settings and unhide them. This is useful for links you do not want cluttering your library.</p>
-          </div>
-        </details>
-        <details>
-          <summary>What happens if I delete a message in Messages?</summary>
-          <div class="answer">
-            <p>Missing Link has a setting for links that are no longer present in Messages:</p><p>“Keep links deleted from Messages for”</p><p>Options include Don’t Keep, 30 Days, 90 Days, 1 Year, 2 Years, and Forever.</p><p>If set to Don’t Keep, links disappear from Missing Link when they are no longer found in Messages. If a retention period is selected, deleted-from-Messages links can remain in Missing Link for that amount of time based on when they were last shared.</p>
-          </div>
-        </details>
-        <details>
-          <summary>Does Missing Link remove spam links?</summary>
-          <div class="answer">
-            <p>Links from Messages content marked as spam or junk are removed automatically. There is no setting to keep spam links.</p>
-          </div>
-        </details>
-        <details>
-          <summary>What data does Missing Link store locally?</summary>
-          <div class="answer">
-            <p>Missing Link stores app-owned data such as:</p><ul><li>A local link index</li><li>Starred and hidden link state</li><li>Cached preview metadata</li><li>Metadata attempt history</li><li>Settings and layout preferences</li><li>The saved Messages folder permission</li></ul><p>This data belongs to Missing Link and can be deleted from Settings. It is separate from the Messages database.</p>
-          </div>
-        </details>
-        <details>
-          <summary>What does “Delete All App Data” do?</summary>
-          <div class="answer">
-            <p>Delete All App Data removes Missing Link’s local data, including its saved index, cached previews, preferences, stars, hidden links, metadata attempts, and saved Messages folder permission.</p><p>It does not delete or modify Messages.</p><p>After using it, Missing Link will behave like a fresh install and may need Messages access again.</p>
-          </div>
-        </details>
-        <details>
-          <summary>Can I export links?</summary>
-          <div class="answer">
-            <p>Yes. Missing Link can copy current results as JSON or Markdown.</p><p>Exports are user-initiated. They are meant for your own use. The app’s export format is sanitized and does not include raw Messages database identifiers.</p>
-          </div>
-        </details>
-        <details>
-          <summary>Does Missing Link back up my Messages?</summary>
-          <div class="answer">
-            <p>No. Missing Link is not a Messages backup tool.</p><p>It creates a local app-owned index of links for search and browsing, but it does not preserve full conversations and should not be treated as a backup of Messages.</p>
-          </div>
-        </details>
-        <details>
-          <summary>Why might a link be missing?</summary>
-          <div class="answer">
-            <p>A link may be missing if Messages did not store it in a readable form, if the message was deleted, if it was marked as spam/junk, or if the link was filtered out as part of duplicate or preview-cleanup logic.</p><p>Missing Link tries to capture normal links from Messages, including links in group threads, but Messages stores different message types in different ways.</p>
-          </div>
-        </details>
-        <details>
-          <summary>Where is the privacy policy?</summary>
-          <div class="answer">
-            <p>The privacy policy is available at:</p><p><a href="/missing-link/privacy/">badombre.com/missing-link/privacy/</a></p>
-          </div>
-        </details>
         </section>
       </main>
 
@@ -510,11 +548,5 @@
       </footer>
     </div>
   </div>
-
-  <script>
-    const details = [...document.querySelectorAll('details')];
-    document.getElementById('openAll').addEventListener('click', () => details.forEach(d => d.open = true));
-    document.getElementById('closeAll').addEventListener('click', () => details.forEach(d => d.open = false));
-  </script>
 </body>
 </html>
