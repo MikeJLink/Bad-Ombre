@@ -417,126 +417,79 @@
             <div class="message-pair">
               <div class="bubble question">Why not search Messages the normal way?</div>
               <div class="bubble answer">
-                <p>This app adds additional functionality around how links are readable, searchable, and filterable.</p><p>Additional views make it easier to scan. You may want to search for links by sender, or based on the metadata. You can also "star" a link to find more easily later.</p>
+                <p>Missing Link is for power users so that links are more readable, searchable, and filterable - multiple views, complex filters, or bookmarking links for later.</p>
               </div>
             </div>
-
-            <div class="message-pair">
-              <div class="bubble question">How do I use Missing Link?</div>
-              <div class="bubble answer">
-                <p>There are three basic steps:</p><ol><li>Grant read-only access to your Messages folder.</li><li>Let Missing Link index the links it finds.</li><li>Search or browse your links using Timeline, Table, or Images view.</li></ol><p>You can search by title, domain, URL, sender, contact name, message excerpt, and available metadata. Select a link to see more details in the inspector, then open it or copy it.</p>
-              </div>
-            </div>
-
-            <div class="message-pair">
-              <div class="bubble question">What does “read-only Messages access” mean?</div>
-              <div class="bubble answer">
-                <p>Missing Link reads the Messages database file stored locally on your Mac. It uses that access to find links.</p><p>It does not write to the Messages database. It does not edit messages. It does not delete messages. It does not mark messages as read. It does not send messages.</p>
-              </div>
-            </div>
-
-            <div class="message-pair">
-              <div class="bubble question">Does Missing Link upload my messages?</div>
-              <div class="bubble answer">
-                <p>No, Missing Link does not upload your Messages database or message contents to an app server.</p><p>The main indexing work happens locally on your Mac. Missing Link stores its own local index so the app can search quickly without repeatedly parsing everything from scratch.</p><p>Some optional link preview features require network access.</p><p>When metadata fetching is enabled, Missing Link may contact linked websites, supported preview endpoints, or Apple’s metadata service to load titles, descriptions, icons, and images. That means a website may learn that a link was previewed.</p><p>Missing Link does not send your Messages database, full conversation history, or Contacts database to an app server.</p>
-              </div>
-            </div>
-
             <div class="message-pair">
               <div class="bubble question">Why does Missing Link need access to my Messages folder?</div>
               <div class="bubble answer">
-                <p>macOS protects your Messages data. Missing Link needs your permission before it can read the local Messages database.</p><p>When asked, select the Messages folder itself, usually:</p><pre><code>~/Library/Messages</code></pre><p>This gives Missing Link access to read the local database file it needs to index links.</p>
+                <p>macOS protects your Messages data. Missing Link needs your permission before it can read the local Messages database. When asked, select the Messages folder itself, usually ~/Library/Messages. This gives Missing Link access to process messages to grab the links.</p>
               </div>
             </div>
-
             <div class="message-pair">
-              <div class="bubble question">Why does Missing Link ask for Contacts access?</div>
+              <div class="bubble question">Will it upload my messages?</div>
               <div class="bubble answer">
-                <p>Contacts access is optional and is used to make results easier to read. If enabled, Missing Link matches phone numbers and email addresses from Messages to names and thumbnail photos in your local Contacts database. For example, it can show “Alex Smith” instead of a phone number. Missing Link does not edit your contacts or upload your contacts.</p><p>If Contacts access is not enabled, it will fall back to showing available Messages handles, such as phone numbers or email addresses, instead of contact names and photos.</p>
+                <p>No, the main indexing work happens locally on your Mac. Missing Link stores its own local index so the app can search quickly without repeatedly parsing everything from scratch. Some optional link preview / metadata features require network access, but otherwise it's entirely local.</p>
               </div>
             </div>
-
             <div class="message-pair">
               <div class="bubble question">Is metadata fetched automatically?</div>
               <div class="bubble answer">
-                <p>By default, Missing Link uses a privacy-conscious setting: metadata is automatically added for starred links and links from contacts.</p><p>You can change this in Settings:</p><ul><li>Starred and Contacts Only</li><li>All Links</li><li>Off</li></ul>
+                <p>By default, Missing Link uses a privacy-conscious setting: metadata is automatically added for starred links and links from contacts. You can change this in Settings.</p>
               </div>
             </div>
-
             <div class="message-pair">
               <div class="bubble question">Why not fetch metadata for every link by default?</div>
               <div class="bubble answer">
-                <p>Fetching metadata contacts websites. For links from unknown senders, that can be a privacy tradeoff. The default is meant to be useful without being too eager: links you star and links from people in your contacts are treated as more likely to be worth previewing.</p><p>Additionally, metadata fetching is limited to public HTTPS links and avoids private/local/internal network addresses. HTTP links can still appear in Missing Link and can still be opened manually, but they are not used for metadata fetching.</p>
+                <p>Fetching metadata contacts websites. For links from unknown senders, that can be a privacy tradeoff. The default is meant to be useful without being too eager: links you star and links from people in your contacts are treated as more likely to be worth previewing. Additionally, metadata fetching is limited to public HTTPS links and avoids private/local/internal network addresses. HTTP links can still appear in Missing Link and can still be opened manually, but they are not used for metadata fetching.</p>
               </div>
             </div>
-
+            <div class="message-pair">
+              <div class="bubble question">Why does Missing Link ask for Contacts access?</div>
+              <div class="bubble answer">
+                <p>Contacts access is optional and is used to make results easier to read. If enabled, Missing Link matches phone numbers and email addresses from Messages to names and thumbnail photos in your local Contacts database. But if you choose not to use it, then it'll fall back to showing phone numbers or email addresses.</p>
+              </div>
+            </div>
             <div class="message-pair">
               <div class="bubble question">What does starring a link do?</div>
               <div class="bubble answer">
-                <p>Starring marks a link as important.</p><p>Starred links appear in the Starred collection and can be included in automatic metadata fetching. Stars are saved by Missing Link, separate from Messages.</p>
+                <p>Starring marks a link as important. They can be filtered and viewed.</p>
               </div>
             </div>
-
             <div class="message-pair">
               <div class="bubble question">What does hiding a link do?</div>
               <div class="bubble answer">
-                <p>Hiding removes a link from normal results without deleting it from Messages.</p><p>Hidden links stay hidden unless you turn on Show Hidden Links in Settings and unhide them. This is useful for links you do not want cluttering your library.</p>
+                <p>Hiding removes a link from normal results without deleting it from Messages. Hidden links stay hidden unless you turn on Show Hidden Links in Settings and unhide them. This is useful for links you do not want cluttering your library.</p>
               </div>
             </div>
-
             <div class="message-pair">
               <div class="bubble question">What happens if I delete a message in Messages?</div>
               <div class="bubble answer">
-                <p>Missing Link has a setting for links that are no longer present in Messages:</p><p>“Keep links deleted from Messages for”</p><p>Options include Don’t Keep, 30 Days, 90 Days, 1 Year, 2 Years, and Forever.</p><p>If set to Don’t Keep, links disappear from Missing Link when they are no longer found in Messages. If a retention period is selected, deleted-from-Messages links can remain in Missing Link for that amount of time based on when they were last shared.</p>
+                <p>Missing Link has a setting for links that are no longer present in Messages. You can have them automatically removed, or keep them for 30 Days, 90 Days, 1 Year, 2 Years, or Forever.</p>
               </div>
             </div>
-
             <div class="message-pair">
-              <div class="bubble question">Does Missing Link remove spam links?</div>
+              <div class="bubble question">What does "Delete All App Data" do?</div>
               <div class="bubble answer">
-                <p>Links from Messages content marked as spam or junk are removed automatically. There is no setting to keep spam links.</p>
+                <p>It removes Missing Link’s local data, including its saved index, cached previews, preferences, stars, hidden links, metadata attempts, and saved Messages folder permission. It does not delete or modify Messages. After using it, Missing Link will behave like a fresh install and may need Messages access again.</p>
               </div>
             </div>
-
-            <div class="message-pair">
-              <div class="bubble question">What data does Missing Link store locally?</div>
-              <div class="bubble answer">
-                <p>Missing Link stores app-owned data such as:</p><ul><li>A local link index</li><li>Starred and hidden link state</li><li>Cached preview metadata</li><li>Metadata attempt history</li><li>Settings and layout preferences</li><li>The saved Messages folder permission</li></ul><p>This data belongs to Missing Link and can be deleted from Settings. It is separate from the Messages database.</p>
-              </div>
-            </div>
-
-            <div class="message-pair">
-              <div class="bubble question">What does “Delete All App Data” do?</div>
-              <div class="bubble answer">
-                <p>Delete All App Data removes Missing Link’s local data, including its saved index, cached previews, preferences, stars, hidden links, metadata attempts, and saved Messages folder permission.</p><p>It does not delete or modify Messages.</p><p>After using it, Missing Link will behave like a fresh install and may need Messages access again.</p>
-              </div>
-            </div>
-
             <div class="message-pair">
               <div class="bubble question">Can I export links?</div>
               <div class="bubble answer">
-                <p>Yes. Missing Link can copy current results as JSON or Markdown.</p><p>Exports are user-initiated. They are meant for your own use. The app’s export format is sanitized and does not include raw Messages database identifiers.</p>
+                <p>Yes. Missing Link can copy current results as JSON or Markdown. Exports are user-initiated. They are meant for your own use. The app’s export format is sanitized and does not include raw Messages database identifiers.</p>
               </div>
             </div>
-
             <div class="message-pair">
               <div class="bubble question">Does Missing Link back up my Messages?</div>
               <div class="bubble answer">
-                <p>No. Missing Link is not a Messages backup tool.</p><p>It creates a local app-owned index of links for search and browsing, but it does not preserve full conversations and should not be treated as a backup of Messages.</p>
+                <p>No. Missing Link is not a Messages backup tool. It creates a local app-owned index of links for search and browsing, but it does not preserve full conversations and should not be treated as a backup of Messages.</p>
               </div>
             </div>
-
             <div class="message-pair">
               <div class="bubble question">Why might a link be missing?</div>
               <div class="bubble answer">
-                <p>A link may be missing if Messages did not store it in a readable form, if the message was deleted, if it was marked as spam/junk, or if the link was filtered out as part of duplicate or preview-cleanup logic.</p><p>Missing Link tries to capture normal links from Messages, including links in group threads, but Messages stores different message types in different ways.</p>
-              </div>
-            </div>
-
-            <div class="message-pair">
-              <div class="bubble question">Where is the privacy policy?</div>
-              <div class="bubble answer">
-                <p>The privacy policy is available at:</p><p><a href="/missing-link/privacy/">badombre.com/missing-link/privacy/</a></p>
+                <p>A link may be missing if Messages did not store it in a readable form, if the message was deleted, if it was marked as spam/junk, or if the link was filtered out as part of duplicate or preview-cleanup logic. Missing Link tries to capture normal links from Messages, but it can store different message types in different ways making that sometimes tricky.</p>
               </div>
             </div>
           </div>
